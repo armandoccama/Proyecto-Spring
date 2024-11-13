@@ -78,6 +78,12 @@ public class LibroServicio {
             libro.setEditorial(editorial);
         }
     }
+
+    @Transactional(readOnly = true)
+    public Libro getOne(Long isbn) {
+        return libroRepositorio.getReferenceById(isbn);
+    }
+
     private void validar(Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial)
             throws MiException {
 
